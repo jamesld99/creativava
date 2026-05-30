@@ -72,7 +72,7 @@ export function JsonLd({
         }
       : null;
 
-  const scripts = [organization, website];
+  const scripts: Record<string, unknown>[] = [organization, website];
   if (type === "faq") scripts.push(faqPage);
   if (type === "service" && service) scripts.push(service);
 
