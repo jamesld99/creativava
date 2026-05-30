@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-lilac-50: #faf8ff;
+  --color-lilac-100: #f3eeff;
+  --color-lilac-200: #e8deff;
+  --color-lilac-300: #d4c4fc;
+  --color-lilac-400: #b69bf7;
+  --color-lilac-500: #9670ef;
+  --color-lilac-600: #7b4fe0;
+  --color-lilac-700: #6a3fc9;
+  --color-lilac-800: #5734a3;
+  --color-lilac-900: #482d85;
+  --color-blush-50: #fff5f8;
+  --color-blush-100: #ffe8f0;
+  --color-blush-200: #ffd1e3;
+  --color-blush-300: #ffb3d1;
+  --color-blush-400: #ff8cbb;
+  --color-blush-500: #f06ba8;
+  --color-coral-50: #fff8f3;
+  --color-coral-100: #ffedd9;
+  --color-coral-200: #ffd9b3;
+  --color-coral-300: #ffbf85;
+  --color-coral-400: #ff9f5c;
+  --color-coral-500: #f57c3a;
+  --color-violet-deep: #4a2d7a;
+  --color-mint-100: #e4faf5;
+  --color-mint-300: #8ed9c8;
+  --color-mint-500: #3aab94;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-lilac-50 text-slate-800 antialiased;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% -10%, rgba(255, 140, 187, 0.12), transparent),
+    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(150, 112, 239, 0.15), transparent),
+    radial-gradient(ellipse 50% 30% at 50% 100%, rgba(255, 159, 92, 0.08), transparent);
+  background-attachment: fixed;
+}
+
+::selection {
+  @apply bg-blush-300/70 text-violet-deep;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-lilac-700 via-blush-500 to-coral-400 bg-clip-text text-transparent;
+}
+
+.eyebrow-pill {
+  @apply inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider;
+}
+
+.card-tilt:hover {
+  transform: rotate(-0.5deg) translateY(-4px);
+}
+
+.pattern-dots {
+  background-image: radial-gradient(circle, rgba(123, 79, 224, 0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+}

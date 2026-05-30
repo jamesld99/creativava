@@ -1,0 +1,10 @@
+{
+  "name": "Creativa VA",
+  "short_name": "Creativa VA",
+  "description": "Creative virtual assistant support for busy CEOs and business owners",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f3eeff",
+  "theme_color": "#6a3fc9",
+  "lang": "en-GB"
+}

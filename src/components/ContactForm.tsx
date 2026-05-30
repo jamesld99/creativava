@@ -1,0 +1,117 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
+import { siteConfig } from "@/lib/site";
+
+export function ContactForm() {
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const name = data.get("name") as string;
+    const email = data.get("email") as string;
+    const message = data.get("message") as string;
+    const subject = encodeURIComponent(`Discovery call enquiry from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+    );
+    window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+  }
+
+  if (submitted) {
+    return (
+      <div
+        className="rounded-2xl border border-lilac-200 bg-lilac-50 p-8 text-center"
+        role="status"
+      >
+        <p className="font-semibold text-lilac-800">Thank you for getting in touch.</p>
+        <p className="mt-2 text-sm text-slate-600">
+          Your email app should open shortly. If it does not, email us at{" "}
+          <a href={`mailto:${siteConfig.email}`} className="font-medium text-lilac-700 underline">
+            {siteConfig.email}
+          </a>
+          .
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+      <div>
+        <label htmlFor="name" className="block text-sm font-medium text-slate-700">
+          Your name
+        </label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          required
+          autoComplete="name"
+          className="mt-2 w-full rounded-xl border border-lilac-200 bg-white px-4 py-3 text-slate-800 shadow-sm transition focus:border-lilac-400 focus:outline-none focus:ring-2 focus:ring-lilac-300/50"
+        />
+      </div>
+      <div>
+        <label htmlFor="email" className="block text-sm font-medium text-slate-700">
+          Email address
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+          autoComplete="email"
+          className="mt-2 w-full rounded-xl border border-lilac-200 bg-white px-4 py-3 text-slate-800 shadow-sm transition focus:border-lilac-400 focus:outline-none focus:ring-2 focus:ring-lilac-300/50"
+        />
+      </div>
+      <div>
+        <label htmlFor="service" className="block text-sm font-medium text-slate-700">
+          What support do you need?
+        </label>
+        <select
+          id="service"
+          name="service"
+          className="mt-2 w-full rounded-xl border border-lilac-200 bg-white px-4 py-3 text-slate-800 shadow-sm transition focus:border-lilac-400 focus:outline-none focus:ring-2 focus:ring-lilac-300/50"
+          defaultValue=""
+        >
+          <option value="" disabled>
+            Select a service
+          </option>
+          <option value="social">Social media support</option>
+          <option value="va">Virtual assistant support</option>
+          <option value="website">Website design</option>
+          <option value="multiple">A combination of services</option>
+          <option value="unsure">Not sure yet — let&apos;s chat</option>
+        </select>
+      </div>
+      <div>
+        <label htmlFor="message" className="block text-sm font-medium text-slate-700">
+          Tell us about your business and goals
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows={5}
+          required
+          className="mt-2 w-full resize-y rounded-xl border border-lilac-200 bg-white px-4 py-3 text-slate-800 shadow-sm transition focus:border-lilac-400 focus:outline-none focus:ring-2 focus:ring-lilac-300/50"
+          placeholder="What would help you most right now?"
+        />
+      </div>
+      <button
+        type="submit"
+        className="w-full rounded-full bg-gradient-to-r from-lilac-600 via-lilac-500 to-blush-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-lilac-500/35 transition hover:from-lilac-700 hover:to-blush-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lilac-500 focus-visible:ring-offset-2"
+      >
+        Send Message — Book a Free Discovery Call
+      </button>
+      <p className="text-center text-xs text-slate-500">
+        Prefer to call?{" "}
+        <a href={`tel:${siteConfig.phone}`} className="font-medium text-lilac-700">
+          {siteConfig.phoneDisplay}
+        </a>
+      </p>
+    </form>
+  );
+}
