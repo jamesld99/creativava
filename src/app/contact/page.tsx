@@ -18,7 +18,7 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Book a Free Discovery Call"
         subtitle="Tell us about your business and the support you need. We will get back to you with clear, friendly next steps — whether you need admin help, social media or a new website."
-        primaryCta={{ label: "Get Support Today", href: "#contact" }}
+        primaryCta={{ label: "Get Support Today", href: "/contact#contact" }}
         secondaryCta={{ label: "View Services", href: "/services" }}
       />
       <ContactSection showHeader={false} />

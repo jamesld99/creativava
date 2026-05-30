@@ -20,31 +20,27 @@ export function CtaBanner({
   return (
     <div className="relative overflow-hidden rounded-[2rem] border-2 border-white/20 bg-gradient-to-br from-lilac-600 via-violet-deep to-blush-500 px-8 py-12 text-center shadow-2xl shadow-lilac-600/40 md:px-14 md:py-16">
       <div
-        className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-coral-300/30 blur-2xl"
+        className="pointer-events-none absolute -right-16 -top-16 z-0 h-48 w-48 rounded-full bg-coral-300/30 blur-2xl"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-blush-300/25 blur-3xl"
+        className="pointer-events-none absolute -bottom-20 -left-10 z-0 h-56 w-56 rounded-full bg-blush-300/25 blur-3xl"
         aria-hidden
       />
-      <p className="relative mb-3 text-sm font-bold uppercase tracking-wider text-blush-100">
+      <p className="relative z-10 mb-3 text-sm font-bold uppercase tracking-wider text-blush-100">
         Ready when you are ✨
       </p>
-      <h2 className="relative font-display text-2xl font-semibold text-white md:text-3xl">
+      <h2 className="relative z-10 font-display text-2xl font-semibold text-white md:text-3xl">
         {title}
       </h2>
-      <p className="relative mx-auto mt-4 max-w-2xl text-base leading-relaxed text-lilac-100">
+      <p className="relative z-10 mx-auto mt-4 max-w-2xl text-base leading-relaxed text-lilac-100">
         {description}
       </p>
-      <div className="relative mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <div className="relative z-10 mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <Button href={primaryHref} variant="secondary">
           {primaryLabel}
         </Button>
-        <Button
-          href={secondaryHref}
-          variant="outline"
-          className="border-white/50 text-white hover:bg-white/15"
-        >
+        <Button href={secondaryHref} variant="onDark">
           {secondaryLabel}
         </Button>
       </div>

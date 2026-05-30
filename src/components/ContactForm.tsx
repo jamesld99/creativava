@@ -12,12 +12,21 @@ export function ContactForm() {
     const data = new FormData(form);
     const name = data.get("name") as string;
     const email = data.get("email") as string;
+    const service = data.get("service") as string;
     const message = data.get("message") as string;
     const subject = encodeURIComponent(`Discovery call enquiry from ${name}`);
     const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+      `Name: ${name}\nEmail: ${email}\nService: ${service || "Not specified"}\n\nMessage:\n${message}`,
     );
-    window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
+    const mailto = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
+
+    const link = document.createElement("a");
+    link.href = mailto;
+    link.rel = "noopener noreferrer";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
     setSubmitted(true);
   }
 
@@ -40,7 +49,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+    <form onSubmit={handleSubmit} className="relative z-10 space-y-5" noValidate>
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-slate-700">
           Your name
@@ -80,11 +89,11 @@ export function ContactForm() {
           <option value="" disabled>
             Select a service
           </option>
-          <option value="social">Social media support</option>
-          <option value="va">Virtual assistant support</option>
-          <option value="website">Website design</option>
-          <option value="multiple">A combination of services</option>
-          <option value="unsure">Not sure yet — let&apos;s chat</option>
+          <option value="Social media support">Social media support</option>
+          <option value="Virtual assistant support">Virtual assistant support</option>
+          <option value="Website design">Website design</option>
+          <option value="A combination of services">A combination of services</option>
+          <option value="Not sure yet">Not sure yet — let&apos;s chat</option>
         </select>
       </div>
       <div>
@@ -102,13 +111,13 @@ export function ContactForm() {
       </div>
       <button
         type="submit"
-        className="w-full rounded-full bg-gradient-to-r from-lilac-600 via-lilac-500 to-blush-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-lilac-500/35 transition hover:from-lilac-700 hover:to-blush-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lilac-500 focus-visible:ring-offset-2"
+        className="relative z-10 w-full cursor-pointer rounded-full bg-gradient-to-r from-lilac-600 via-lilac-500 to-blush-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-lilac-500/35 transition hover:from-lilac-700 hover:to-blush-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lilac-500 focus-visible:ring-offset-2"
       >
         Send Message — Book a Free Discovery Call
       </button>
       <p className="text-center text-xs text-slate-500">
         Prefer to call?{" "}
-        <a href={`tel:${siteConfig.phone}`} className="font-medium text-lilac-700">
+        <a href={`tel:${siteConfig.phone}`} className="font-medium text-lilac-700 hover:underline">
           {siteConfig.phoneDisplay}
         </a>
       </p>

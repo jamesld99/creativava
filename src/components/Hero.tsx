@@ -21,12 +21,17 @@ export function Hero({
 }: HeroProps) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-lilac-200 via-blush-100 to-coral-100 pt-10 pb-16 md:pt-14 md:pb-24">
-      <DecorativeBlob variant="purple" className="-left-16 top-8 h-56 w-56 opacity-80" />
-      <DecorativeBlob variant="coral" className="-right-10 top-20 h-48 w-48" />
-      <DecorativeBlob variant="pink" className="bottom-0 left-1/3 h-40 w-40" />
-      <div className="pattern-dots pointer-events-none absolute inset-0 opacity-40" aria-hidden />
+      <div
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+        aria-hidden
+      >
+        <DecorativeBlob variant="purple" className="-left-16 top-8 h-56 w-56 opacity-80" />
+        <DecorativeBlob variant="coral" className="-right-10 top-20 h-48 w-48" />
+        <DecorativeBlob variant="pink" className="bottom-0 left-1/3 h-40 w-40" />
+        <div className="pattern-dots absolute inset-0 opacity-40" />
+      </div>
 
-      <div className="relative mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className={`grid items-center gap-10 ${compact ? "" : "lg:grid-cols-[1.1fr_0.9fr] lg:gap-14"}`}>
           <div>
             <p className="eyebrow-pill mb-5 border border-white/60 bg-white/80 text-lilac-800 shadow-sm backdrop-blur-sm">
@@ -46,14 +51,14 @@ export function Hero({
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-700 md:text-xl">
               {subtitle}
             </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <div className="relative z-10 mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Button href={primaryCta.href}>{primaryCta.label}</Button>
               <Button href={secondaryCta.href} variant="secondary">
                 {secondaryCta.label}
               </Button>
             </div>
             {!compact && (
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              <div className="relative z-10 mt-8 flex flex-wrap items-center gap-4">
                 <span className="text-sm font-medium text-slate-600">Say hello:</span>
                 <SocialLinks size="sm" />
               </div>
@@ -61,7 +66,7 @@ export function Hero({
           </div>
 
           {!compact && (
-            <aside className="relative hidden lg:block">
+            <aside className="relative z-10 hidden lg:block">
               <div className="relative rotate-1 rounded-[2rem] border-2 border-white/80 bg-gradient-to-br from-white via-lilac-50 to-blush-50 p-8 shadow-2xl shadow-lilac-400/25">
                 <div className="absolute -right-4 -top-4 rounded-2xl bg-gradient-to-r from-blush-400 to-lilac-500 px-4 py-2 text-sm font-bold text-white shadow-lg">
                   ✨ Real human support

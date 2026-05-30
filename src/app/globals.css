@@ -56,9 +56,6 @@ body {
   @apply inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider;
 }
 
-.card-tilt:hover {
-  transform: rotate(-0.5deg) translateY(-4px);
-}
 
 .pattern-dots {
   background-image: radial-gradient(circle, rgba(123, 79, 224, 0.15) 1px, transparent 1px);

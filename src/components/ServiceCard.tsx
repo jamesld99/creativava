@@ -14,7 +14,7 @@ const themes = {
     bg: "bg-gradient-to-br from-blush-50 via-white to-lilac-50",
     iconBg: "bg-gradient-to-br from-blush-300 to-blush-400 text-white",
     dot: "bg-blush-400",
-    link: "text-blush-500 hover:text-blush-400",
+    link: "text-blush-500 group-hover:text-blush-400",
     shadow: "shadow-blush-200/50 hover:shadow-blush-300/60",
     emoji: "📱",
   },
@@ -23,7 +23,7 @@ const themes = {
     bg: "bg-gradient-to-br from-lilac-50 via-white to-mint-100/50",
     iconBg: "bg-gradient-to-br from-lilac-500 to-lilac-600 text-white",
     dot: "bg-lilac-500",
-    link: "text-lilac-700 hover:text-lilac-600",
+    link: "text-lilac-700 group-hover:text-lilac-600",
     shadow: "shadow-lilac-200/50 hover:shadow-lilac-400/50",
     emoji: "✨",
   },
@@ -32,7 +32,7 @@ const themes = {
     bg: "bg-gradient-to-br from-coral-50 via-white to-blush-50",
     iconBg: "bg-gradient-to-br from-coral-400 to-coral-500 text-white",
     dot: "bg-coral-400",
-    link: "text-coral-500 hover:text-coral-400",
+    link: "text-coral-500 group-hover:text-coral-400",
     shadow: "shadow-coral-200/50 hover:shadow-coral-300/50",
     emoji: "🌐",
   },
@@ -75,8 +75,9 @@ export function ServiceCard({
   const t = themes[icon];
 
   return (
-    <article
-      className={`card-tilt group flex h-full flex-col rounded-[1.75rem] border-2 ${t.border} ${t.bg} p-8 shadow-xl ${t.shadow} transition-all duration-300`}
+    <Link
+      href={href}
+      className={`group relative z-10 flex h-full cursor-pointer flex-col rounded-[1.75rem] border-2 ${t.border} ${t.bg} p-8 shadow-xl ${t.shadow} transition-all duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lilac-500 focus-visible:ring-offset-2`}
     >
       <div className="mb-4 flex items-center justify-between">
         <div
@@ -102,13 +103,10 @@ export function ServiceCard({
           </li>
         ))}
       </ul>
-      <Link
-        href={href}
-        className={`mt-6 inline-flex items-center gap-1 text-sm font-bold transition-colors ${t.link}`}
-      >
+      <span className={`mt-6 inline-flex items-center gap-1 text-sm font-bold ${t.link}`}>
         Learn more
         <span aria-hidden>→</span>
-      </Link>
-    </article>
+      </span>
+    </Link>
   );
 }

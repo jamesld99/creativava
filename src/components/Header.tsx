@@ -43,7 +43,9 @@ export function Header() {
             </Link>
           ))}
           <SocialLinks size="sm" />
-          <Button href="/contact">Book a Free Discovery Call</Button>
+          <Button href="/contact" className="shrink-0">
+            Book a Free Discovery Call
+          </Button>
         </nav>
 
         <button

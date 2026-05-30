@@ -38,12 +38,16 @@ export function Section({
   return (
     <section
       id={id}
-      className={`relative overflow-hidden py-16 md:py-24 ${variants[variant]} ${className}`}
+      className={`relative overflow-hidden py-16 md:py-24 ${variants[variant]} ${className} ${id ? "scroll-mt-24" : ""}`}
     >
-      {blobs.map((blob, i) => (
-        <DecorativeBlob key={i} variant={blob.variant} className={blob.className} />
-      ))}
-      <div className="relative mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">{children}</div>
+      {blobs.length > 0 && (
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
+          {blobs.map((blob, i) => (
+            <DecorativeBlob key={i} variant={blob.variant} className={blob.className} />
+          ))}
+        </div>
+      )}
+      <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">{children}</div>
     </section>
   );
 }
@@ -73,7 +77,7 @@ export function SectionHeader({
   const pillClass = eyebrowColors[accent] ?? eyebrowColors.default;
 
   return (
-    <header className={`mb-12 max-w-3xl ${alignClass}`}>
+    <header className={`relative z-10 mb-12 max-w-3xl ${alignClass}`}>
       {eyebrow && (
         <p className={`eyebrow-pill mb-4 ${pillClass} ${align === "center" ? "mx-auto" : ""}`}>
           {eyebrow}

@@ -47,7 +47,7 @@ export function SocialLinks({ size = "md", className = "" }: SocialLinksProps) {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center justify-center rounded-2xl transition-transform duration-200 hover:scale-105 ${sizeClasses[size]} ${colorClasses[link.icon]}`}
+              className={`relative z-10 inline-flex cursor-pointer items-center justify-center rounded-2xl transition-transform duration-200 hover:scale-105 ${sizeClasses[size]} ${colorClasses[link.icon]}`}
               aria-label={`Creativa VA on ${link.label}`}
             >
               <Icon />
