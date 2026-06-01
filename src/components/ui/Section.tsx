@@ -9,13 +9,13 @@ type SectionProps = {
 };
 
 const variants = {
-  default: "bg-lilac-50/80",
-  muted: "bg-white",
+  default: "bg-cream-100/90",
+  muted: "bg-cream-50",
   gradient:
-    "bg-gradient-to-br from-lilac-100 via-blush-50 to-coral-50",
-  warm: "bg-gradient-to-b from-blush-50 via-white to-lilac-50",
+    "bg-gradient-to-br from-cream-100 via-rose-50 to-rose-100",
+  warm: "bg-gradient-to-b from-rose-50 via-cream-50 to-cream-100",
   purple:
-    "bg-gradient-to-br from-lilac-300/40 via-lilac-100 to-blush-100",
+    "bg-gradient-to-br from-rose-100/80 via-cream-100 to-rose-50",
 };
 
 const blobConfig: Record<string, { variant: "purple" | "pink" | "coral" | "mint"; className: string }[]> = {
@@ -53,11 +53,11 @@ export function Section({
 }
 
 const eyebrowColors: Record<string, string> = {
-  default: "bg-lilac-200/80 text-lilac-800",
-  services: "bg-blush-200 text-blush-500",
-  about: "bg-coral-100 text-coral-500",
-  tools: "bg-mint-100 text-mint-500",
-  faq: "bg-lilac-300/60 text-lilac-800",
+  default: "bg-rose-100 text-rose-700",
+  services: "bg-rose-200 text-rose-800",
+  about: "bg-rose-100 text-rose-600",
+  tools: "bg-cream-200 text-charcoal",
+  faq: "bg-rose-200/80 text-rose-800",
 };
 
 export function SectionHeader({
@@ -83,11 +83,11 @@ export function SectionHeader({
           {eyebrow}
         </p>
       )}
-      <h2 className="font-display text-3xl font-semibold tracking-tight text-violet-deep md:text-4xl">
+      <h2 className="font-display text-3xl font-semibold tracking-tight text-charcoal md:text-4xl">
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-lg leading-relaxed text-slate-600">
+        <p className="mt-4 text-lg leading-relaxed text-charcoal/75">
           {description}
         </p>
       )}

@@ -60,9 +60,9 @@ export default function AboutPage() {
             value quality, organisation and a brand that looks as professional as the
             service they deliver.
           </p>
-          <div className="mt-8 rounded-2xl border-2 border-lilac-200 bg-gradient-to-r from-lilac-50 to-blush-50 p-6">
-            <p className="text-sm font-bold text-violet-deep">Follow along</p>
-            <p className="mt-2 text-sm text-slate-600">
+          <div className="mt-8 rounded-2xl border-2 border-rose-200 bg-gradient-to-r from-cream-100 to-rose-50 p-6">
+            <p className="text-sm font-bold text-charcoal">Follow along</p>
+            <p className="mt-2 text-sm text-charcoal/75">
               See our work and connect on social — we would love to hear from you.
             </p>
             <SocialLinks size="md" className="mt-4" />

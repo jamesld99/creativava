@@ -10,29 +10,29 @@ import { faqItems } from "@/lib/faq";
 import { tools } from "@/lib/site";
 
 const audiences = [
-  { text: "CEOs and founders who need reliable support behind the scenes", color: "from-lilac-100 to-lilac-50 border-lilac-200" },
-  { text: "Small business owners juggling admin, content and client work", color: "from-blush-50 to-blush-100/80 border-blush-200" },
-  { text: "Coaches and consultants growing their online presence", color: "from-coral-50 to-coral-100/60 border-coral-200" },
-  { text: "Entrepreneurs who want organised systems without hiring full-time staff", color: "from-mint-100/80 to-lilac-50 border-mint-300/50" },
-  { text: "Growing companies that need flexible virtual assistant UK support", color: "from-lilac-50 to-blush-50 border-lilac-200" },
+  { text: "CEOs and founders who need reliable support behind the scenes", color: "from-cream-100 to-cream-50 border-rose-200" },
+  { text: "Small business owners juggling admin, content and client work", color: "from-rose-50 to-rose-100/80 border-rose-200" },
+  { text: "Coaches and consultants growing their online presence", color: "from-rose-100/60 to-cream-100 border-rose-300" },
+  { text: "Entrepreneurs who want organised systems without hiring full-time staff", color: "from-cream-200/80 to-rose-50 border-rose-200" },
+  { text: "Growing companies that need flexible virtual assistant UK support", color: "from-cream-50 to-rose-50 border-rose-200" },
 ];
 
 const whyChoose = [
-  { title: "Save real time every week", text: "Offload admin, inbox and content tasks so you can focus on clients, strategy and growth.", accent: "bg-lilac-500" },
-  { title: "Stay organised and on brand", text: "From diary management to Canva graphic design support — everything feels calm, clear and consistent.", accent: "bg-blush-400" },
-  { title: "Grow online with confidence", text: "Social media management, video editing for social media and website design for small businesses — handled with care.", accent: "bg-coral-400" },
-  { title: "Warm, professional partnership", text: "No corporate jargon. Just friendly, capable support from a virtual assistant for business owners who gets it.", accent: "bg-mint-500" },
+  { title: "Save real time every week", text: "Offload admin, inbox and content tasks so you can focus on clients, strategy and growth.", accent: "bg-rose-500" },
+  { title: "Stay organised and on brand", text: "From diary management to Canva graphic design support — everything feels calm, clear and consistent.", accent: "bg-rose-400" },
+  { title: "Grow online with confidence", text: "Social media management, video editing for social media and website design for small businesses — handled with care.", accent: "bg-rose-600" },
+  { title: "Warm, professional partnership", text: "No corporate jargon. Just friendly, capable support from a virtual assistant for business owners who gets it.", accent: "bg-rose-300" },
 ];
 
 const toolColors = [
-  "bg-lilac-200 text-lilac-800",
-  "bg-blush-200 text-blush-500",
-  "bg-coral-100 text-coral-500",
-  "bg-mint-100 text-mint-500",
-  "bg-lilac-300/60 text-lilac-800",
-  "bg-blush-100 text-blush-500",
-  "bg-coral-200 text-coral-500",
-  "bg-lilac-100 text-lilac-700",
+  "bg-rose-200 text-charcoal",
+  "bg-rose-100 text-rose-800",
+  "bg-cream-200 text-charcoal",
+  "bg-rose-300/70 text-charcoal",
+  "bg-rose-200/80 text-rose-900",
+  "bg-cream-100 text-rose-700",
+  "bg-rose-100 text-rose-600",
+  "bg-rose-50 text-charcoal border border-rose-200",
 ];
 
 export default function HomePage() {
@@ -57,12 +57,12 @@ export default function HomePage() {
               className={`flex items-start gap-3 rounded-2xl border-2 bg-gradient-to-br p-5 shadow-md transition-transform hover:-translate-y-0.5 ${item.color}`}
             >
               <span
-                className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-white text-sm font-bold text-lilac-700 shadow-sm"
+                className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-cream-50 text-sm font-bold text-rose-700 shadow-sm"
                 aria-hidden
               >
                 {i + 1}
               </span>
-              <span className="text-sm font-medium leading-relaxed text-slate-700">
+              <span className="text-sm font-medium leading-relaxed text-charcoal/80">
                 {item.text}
               </span>
             </li>
@@ -132,20 +132,20 @@ export default function HomePage() {
           {whyChoose.map((item) => (
             <article
               key={item.title}
-              className="rounded-3xl border-2 border-white/80 bg-white/90 p-7 shadow-lg backdrop-blur-sm"
+              className="rounded-3xl border-2 border-rose-100/80 bg-cream-50/95 p-7 shadow-lg backdrop-blur-sm"
             >
               <span className={`mb-4 inline-block h-1.5 w-12 rounded-full ${item.accent}`} aria-hidden />
-              <h3 className="font-display text-lg font-semibold text-violet-deep">
+              <h3 className="font-display text-lg font-semibold text-charcoal">
                 {item.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.text}</p>
+              <p className="mt-3 text-sm leading-relaxed text-charcoal/75">{item.text}</p>
             </article>
           ))}
         </div>
         <p className="mt-10 text-center">
           <Link
             href="/why-work-with-us"
-            className="text-sm font-bold text-lilac-700 hover:text-blush-500"
+            className="text-sm font-bold text-rose-700 hover:text-rose-600"
           >
             Read more about why work with Creativa VA →
           </Link>
@@ -180,7 +180,7 @@ export default function HomePage() {
         />
         <FAQ items={faqItems} limit={5} />
         <p className="mt-8 text-center">
-          <Link href="/faq" className="text-sm font-bold text-lilac-700 hover:text-blush-500">
+          <Link href="/faq" className="text-sm font-bold text-rose-700 hover:text-rose-600">
             View all FAQs →
           </Link>
         </p>

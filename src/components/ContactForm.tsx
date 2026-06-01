@@ -33,13 +33,13 @@ export function ContactForm() {
   if (submitted) {
     return (
       <div
-        className="rounded-2xl border border-lilac-200 bg-lilac-50 p-8 text-center"
+        className="rounded-2xl border border-rose-200 bg-rose-50 p-8 text-center"
         role="status"
       >
-        <p className="font-semibold text-lilac-800">Thank you for getting in touch.</p>
-        <p className="mt-2 text-sm text-slate-600">
+        <p className="font-semibold text-charcoal">Thank you for getting in touch.</p>
+        <p className="mt-2 text-sm text-charcoal/75">
           Your email app should open shortly. If it does not, email us at{" "}
-          <a href={`mailto:${siteConfig.email}`} className="font-medium text-lilac-700 underline">
+          <a href={`mailto:${siteConfig.email}`} className="font-medium text-rose-700 underline">
             {siteConfig.email}
           </a>
           .
@@ -60,7 +60,7 @@ export function ContactForm() {
           type="text"
           required
           autoComplete="name"
-          className="mt-2 w-full rounded-xl border border-lilac-200 bg-white px-4 py-3 text-slate-800 shadow-sm transition focus:border-lilac-400 focus:outline-none focus:ring-2 focus:ring-lilac-300/50"
+          className="mt-2 w-full rounded-xl border border-rose-200 bg-white px-4 py-3 text-slate-800 shadow-sm transition focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-300/50"
         />
       </div>
       <div>
@@ -73,7 +73,7 @@ export function ContactForm() {
           type="email"
           required
           autoComplete="email"
-          className="mt-2 w-full rounded-xl border border-lilac-200 bg-white px-4 py-3 text-slate-800 shadow-sm transition focus:border-lilac-400 focus:outline-none focus:ring-2 focus:ring-lilac-300/50"
+          className="mt-2 w-full rounded-xl border border-rose-200 bg-white px-4 py-3 text-slate-800 shadow-sm transition focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-300/50"
         />
       </div>
       <div>
@@ -83,7 +83,7 @@ export function ContactForm() {
         <select
           id="service"
           name="service"
-          className="mt-2 w-full rounded-xl border border-lilac-200 bg-white px-4 py-3 text-slate-800 shadow-sm transition focus:border-lilac-400 focus:outline-none focus:ring-2 focus:ring-lilac-300/50"
+          className="mt-2 w-full rounded-xl border border-rose-200 bg-white px-4 py-3 text-slate-800 shadow-sm transition focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-300/50"
           defaultValue=""
         >
           <option value="" disabled>
@@ -105,19 +105,19 @@ export function ContactForm() {
           name="message"
           rows={5}
           required
-          className="mt-2 w-full resize-y rounded-xl border border-lilac-200 bg-white px-4 py-3 text-slate-800 shadow-sm transition focus:border-lilac-400 focus:outline-none focus:ring-2 focus:ring-lilac-300/50"
+          className="mt-2 w-full resize-y rounded-xl border border-rose-200 bg-white px-4 py-3 text-slate-800 shadow-sm transition focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-300/50"
           placeholder="What would help you most right now?"
         />
       </div>
       <button
         type="submit"
-        className="relative z-10 w-full cursor-pointer rounded-full bg-gradient-to-r from-lilac-600 via-lilac-500 to-blush-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-lilac-500/35 transition hover:from-lilac-700 hover:to-blush-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lilac-500 focus-visible:ring-offset-2"
+        className="relative z-10 w-full cursor-pointer rounded-full bg-gradient-to-r from-rose-600 via-rose-500 to-rose-400 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-rose-600/30 transition hover:from-rose-700 hover:to-rose-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-100"
       >
         Send Message — Book a Free Discovery Call
       </button>
       <p className="text-center text-xs text-slate-500">
         Prefer to call?{" "}
-        <a href={`tel:${siteConfig.phone}`} className="font-medium text-lilac-700 hover:underline">
+        <a href={`tel:${siteConfig.phone}`} className="font-medium text-rose-700 hover:underline">
           {siteConfig.phoneDisplay}
         </a>
       </p>

@@ -15,43 +15,43 @@ export function ContactSection({ showHeader = true }: { showHeader?: boolean }) 
         />
       )}
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
-        <div className="rounded-[1.75rem] border-2 border-lilac-200 bg-gradient-to-br from-lilac-100 via-white to-blush-50 p-8 shadow-xl shadow-lilac-200/40">
-          <h3 className="font-display text-xl font-semibold text-violet-deep">
+        <div className="rounded-[1.75rem] border-2 border-rose-200 bg-gradient-to-br from-cream-100 via-cream-50 to-rose-50 p-8 shadow-xl shadow-rose-200/40">
+          <h3 className="font-display text-xl font-semibold text-charcoal">
             Get in touch
           </h3>
-          <p className="mt-3 text-slate-600 leading-relaxed">
+          <p className="mt-3 leading-relaxed text-charcoal/75">
             Whether you need a social media virtual assistant, admin support or a
             new website, Creativa VA is here to help you save time and stay organised.
           </p>
           <dl className="mt-8 space-y-5">
             <div>
-              <dt className="text-sm font-bold uppercase tracking-wider text-lilac-600">
+              <dt className="text-sm font-bold uppercase tracking-wider text-rose-600">
                 Phone
               </dt>
               <dd className="mt-1">
                 <a
                   href={`tel:${siteConfig.phone}`}
-                  className="text-xl font-bold text-violet-deep hover:text-lilac-600"
+                  className="text-xl font-bold text-charcoal hover:text-rose-600"
                 >
                   {siteConfig.phoneDisplay}
                 </a>
               </dd>
             </div>
             <div>
-              <dt className="text-sm font-bold uppercase tracking-wider text-blush-500">
+              <dt className="text-sm font-bold uppercase tracking-wider text-rose-500">
                 Email
               </dt>
               <dd className="mt-1">
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="text-lg font-bold text-lilac-700 hover:text-lilac-600"
+                  className="text-lg font-bold text-rose-700 hover:text-rose-600"
                 >
                   {siteConfig.email}
                 </a>
               </dd>
             </div>
             <div>
-              <dt className="text-sm font-bold uppercase tracking-wider text-coral-500">
+              <dt className="text-sm font-bold uppercase tracking-wider text-rose-600">
                 Social
               </dt>
               <dd className="mt-3">
@@ -59,13 +59,13 @@ export function ContactSection({ showHeader = true }: { showHeader?: boolean }) 
               </dd>
             </div>
           </dl>
-          <p className="mt-8 rounded-2xl border border-blush-200 bg-blush-50 p-5 text-sm text-slate-700">
-            <strong className="text-violet-deep">Free discovery call:</strong> Share where
+          <p className="mt-8 rounded-2xl border border-rose-200 bg-rose-50 p-5 text-sm text-charcoal/80">
+            <strong className="text-charcoal">Free discovery call:</strong> Share where
             you are stuck, what you want to offload, and how you would like your online
             presence to look. We will suggest practical support that fits your business.
           </p>
         </div>
-        <div className="rounded-[1.75rem] border-2 border-blush-100 bg-white p-8 shadow-xl shadow-blush-200/30">
+        <div className="rounded-[1.75rem] border-2 border-rose-100 bg-cream-50 p-8 shadow-xl shadow-rose-200/30">
           <ContactForm />
         </div>
       </div>

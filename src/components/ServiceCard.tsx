@@ -10,30 +10,30 @@ type ServiceCardProps = {
 
 const themes = {
   social: {
-    border: "border-blush-200",
-    bg: "bg-gradient-to-br from-blush-50 via-white to-lilac-50",
-    iconBg: "bg-gradient-to-br from-blush-300 to-blush-400 text-white",
-    dot: "bg-blush-400",
-    link: "text-blush-500 group-hover:text-blush-400",
-    shadow: "shadow-blush-200/50 hover:shadow-blush-300/60",
+    border: "border-rose-200",
+    bg: "bg-gradient-to-br from-rose-50 via-cream-50 to-cream-100",
+    iconBg: "bg-gradient-to-br from-rose-300 to-rose-400 text-white",
+    dot: "bg-rose-400",
+    link: "text-rose-600 group-hover:text-rose-700",
+    shadow: "shadow-rose-200/50 hover:shadow-rose-300/50",
     emoji: "📱",
   },
   va: {
-    border: "border-lilac-200",
-    bg: "bg-gradient-to-br from-lilac-50 via-white to-mint-100/50",
-    iconBg: "bg-gradient-to-br from-lilac-500 to-lilac-600 text-white",
-    dot: "bg-lilac-500",
-    link: "text-lilac-700 group-hover:text-lilac-600",
-    shadow: "shadow-lilac-200/50 hover:shadow-lilac-400/50",
+    border: "border-rose-300/60",
+    bg: "bg-gradient-to-br from-cream-100 via-cream-50 to-rose-50",
+    iconBg: "bg-gradient-to-br from-rose-500 to-rose-600 text-white",
+    dot: "bg-rose-500",
+    link: "text-rose-700 group-hover:text-rose-800",
+    shadow: "shadow-rose-200/50 hover:shadow-rose-400/40",
     emoji: "✨",
   },
   web: {
-    border: "border-coral-200",
-    bg: "bg-gradient-to-br from-coral-50 via-white to-blush-50",
-    iconBg: "bg-gradient-to-br from-coral-400 to-coral-500 text-white",
-    dot: "bg-coral-400",
-    link: "text-coral-500 group-hover:text-coral-400",
-    shadow: "shadow-coral-200/50 hover:shadow-coral-300/50",
+    border: "border-rose-200",
+    bg: "bg-gradient-to-br from-cream-50 via-rose-50 to-rose-100",
+    iconBg: "bg-gradient-to-br from-rose-600 to-rose-700 text-white",
+    dot: "bg-rose-600",
+    link: "text-rose-600 group-hover:text-rose-700",
+    shadow: "shadow-rose-200/50 hover:shadow-rose-300/50",
     emoji: "🌐",
   },
 };
@@ -77,7 +77,7 @@ export function ServiceCard({
   return (
     <Link
       href={href}
-      className={`group relative z-10 flex h-full cursor-pointer flex-col rounded-[1.75rem] border-2 ${t.border} ${t.bg} p-8 shadow-xl ${t.shadow} transition-all duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lilac-500 focus-visible:ring-offset-2`}
+      className={`group relative z-10 flex h-full cursor-pointer flex-col rounded-[1.75rem] border-2 ${t.border} ${t.bg} p-8 shadow-xl ${t.shadow} transition-all duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-100`}
     >
       <div className="mb-4 flex items-center justify-between">
         <div
@@ -91,13 +91,13 @@ export function ServiceCard({
           {t.emoji}
         </span>
       </div>
-      <h3 className="font-display text-xl font-semibold text-violet-deep">{title}</h3>
-      <p className="mt-3 flex-grow text-sm leading-relaxed text-slate-600">
+      <h3 className="font-display text-xl font-semibold text-charcoal">{title}</h3>
+      <p className="mt-3 flex-grow text-sm leading-relaxed text-charcoal/75">
         {description}
       </p>
       <ul className="mt-5 space-y-2">
         {items.slice(0, 4).map((item) => (
-          <li key={item} className="flex items-start gap-2 text-sm text-slate-700">
+          <li key={item} className="flex items-start gap-2 text-sm text-charcoal/80">
             <span className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${t.dot}`} aria-hidden />
             {item}
           </li>
