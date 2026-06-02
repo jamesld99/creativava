@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { CALENDLY_URL } from "@/lib/booking";
 import { DecorativeBlob } from "./DecorativeBlob";
 import { SocialLinks } from "./SocialLinks";
 import { Button } from "./ui/Button";
@@ -16,7 +17,7 @@ export function Hero({
   title,
   subtitle,
   eyebrow = "Virtual Assistant UK · Social Media · Websites",
-  primaryCta = { label: "Book a Free Discovery Call", href: "/contact" },
+  primaryCta = { label: "Book a Free Discovery Call", href: CALENDLY_URL },
   secondaryCta = { label: "View Services", href: "/services" },
   compact = false,
 }: HeroProps) {

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { navLinks, serviceLinks, siteConfig, socialLinks } from "@/lib/site";
+import { siteConfig, socialLinks } from "@/lib/site";
+import { navLinks, serviceLinks } from "@/lib/navigation";
 import { SocialLinks } from "./SocialLinks";
 
 export function Footer() {

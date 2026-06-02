@@ -1,6 +1,8 @@
-import { siteConfig } from "@/lib/site";
+import { CALENDLY_URL } from "@/lib/booking";
+import { contactInfo } from "@/lib/contact";
 import { ContactForm } from "./ContactForm";
 import { SocialLinks } from "./SocialLinks";
+import { Button } from "./ui/Button";
 import { Section, SectionHeader } from "./ui/Section";
 
 export function ContactSection({ showHeader = true }: { showHeader?: boolean }) {
@@ -23,6 +25,12 @@ export function ContactSection({ showHeader = true }: { showHeader?: boolean }) 
             Whether you need a social media virtual assistant, admin support or a
             new website, Creativa VA is here to help you save time and stay organised.
           </p>
+          <div className="mt-6">
+            <Button href={CALENDLY_URL}>Book a Free Discovery Call</Button>
+            <p className="mt-2 text-xs text-charcoal/60">
+              Opens Calendly in a new tab — pick a time that suits you.
+            </p>
+          </div>
           <dl className="mt-8 space-y-5">
             <div>
               <dt className="text-sm font-bold uppercase tracking-wider text-rose-600">
@@ -30,10 +38,10 @@ export function ContactSection({ showHeader = true }: { showHeader?: boolean }) 
               </dt>
               <dd className="mt-1">
                 <a
-                  href={`tel:${siteConfig.phone}`}
+                  href={`tel:${contactInfo.phone}`}
                   className="text-xl font-bold text-charcoal hover:text-rose-600"
                 >
-                  {siteConfig.phoneDisplay}
+                  {contactInfo.phoneDisplay}
                 </a>
               </dd>
             </div>
@@ -43,10 +51,10 @@ export function ContactSection({ showHeader = true }: { showHeader?: boolean }) 
               </dt>
               <dd className="mt-1">
                 <a
-                  href={`mailto:${siteConfig.email}`}
+                  href={`mailto:${contactInfo.email}`}
                   className="text-lg font-bold text-rose-700 hover:text-rose-600"
                 >
-                  {siteConfig.email}
+                  {contactInfo.email}
                 </a>
               </dd>
             </div>

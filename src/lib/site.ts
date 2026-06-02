@@ -1,3 +1,5 @@
+import { CALENDLY_URL } from "./booking";
+
 export const siteConfig = {
   name: "Creativa VA",
   tagline: "Creative Virtual Assistant Support",
@@ -8,7 +10,12 @@ export const siteConfig = {
   phoneDisplay: "07949 282054",
   email: "liset@creativalilo.com",
   locale: "en_GB",
-} as const;
+  calendlyUrl: CALENDLY_URL,
+};
+
+export { CALENDLY_URL } from "./booking";
+export { contactInfo } from "./contact";
+export { navLinks, serviceLinks } from "./navigation";
 
 export const socialLinks = [
   {
@@ -20,33 +27,6 @@ export const socialLinks = [
     label: "Facebook",
     href: "https://www.facebook.com/profile.php?id=61572603183348",
     icon: "facebook" as const,
-  },
-] as const;
-
-export const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/why-work-with-us", label: "Why Us" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/contact", label: "Contact" },
-] as const;
-
-export const serviceLinks = [
-  {
-    href: "/services/social-media",
-    title: "Social Media Support",
-    short: "Content, strategy and full social management",
-  },
-  {
-    href: "/services/virtual-assistant",
-    title: "Virtual Assistant Support",
-    short: "Admin, email, diary and business organisation",
-  },
-  {
-    href: "/services/website-design",
-    title: "Website Design",
-    short: "Modern websites for small businesses and brands",
   },
 ] as const;
 

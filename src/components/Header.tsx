@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { navLinks } from "@/lib/site";
+import { CALENDLY_URL } from "@/lib/booking";
+import { navLinks } from "@/lib/navigation";
 import { SocialLinks } from "./SocialLinks";
 import { Button } from "./ui/Button";
 
@@ -46,7 +47,7 @@ export function Header() {
             </Link>
           ))}
           <SocialLinks size="sm" />
-          <Button href="/contact" className="shrink-0">
+          <Button href={CALENDLY_URL} className="shrink-0">
             Book a Free Discovery Call
           </Button>
         </nav>
@@ -91,7 +92,7 @@ export function Header() {
               <SocialLinks size="md" />
             </li>
             <li className="pt-2">
-              <Button href="/contact" className="w-full">
+              <Button href={CALENDLY_URL} className="w-full">
                 Book a Free Discovery Call
               </Button>
             </li>

@@ -4,6 +4,7 @@ import { Hero } from "@/components/Hero";
 import { ServiceCard } from "@/components/ServiceCard";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { createMetadata } from "@/lib/seo";
+import { CALENDLY_URL } from "@/lib/booking";
 
 export const metadata: Metadata = createMetadata({
   title: "Virtual Assistant & Digital Support Services",
@@ -20,7 +21,7 @@ export default function ServicesPage() {
         eyebrow="Services"
         title="Flexible Support for Admin, Social Media and Websites"
         subtitle="Choose the help you need today — and scale up as your business grows. Every service is designed for busy business owners who want clarity, quality and results."
-        secondaryCta={{ label: "Book a Free Discovery Call", href: "/contact" }}
+        secondaryCta={{ label: "Book a Free Discovery Call", href: CALENDLY_URL }}
       />
 
       <Section>
