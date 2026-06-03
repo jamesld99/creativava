@@ -48,12 +48,12 @@ npm start
 
 Update the production URL in `src/lib/site.ts` (`siteConfig.url`) before deploying.
 
-### Calendly
+### Discovery call booking
 
-Discovery call buttons link to `siteConfig.calendlyUrl`. Set your exact event link in `src/lib/site.ts`, or add this Vercel environment variable:
+Discovery call buttons link to `BOOKING_URL` in `src/lib/booking.ts` (a Google Calendar page). Update it there, or add this Vercel environment variable:
 
 ```
-NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-username/your-event
+NEXT_PUBLIC_BOOKING_URL=https://calendar.google.com/calendar/embed?src=...
 ```
 
 ## Contact (site content)

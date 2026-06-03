@@ -1,4 +1,4 @@
-import { CALENDLY_URL } from "@/lib/booking";
+import { BOOKING_URL } from "@/lib/booking";
 import { Button } from "./ui/Button";
 
 type CtaBannerProps = {
@@ -14,7 +14,7 @@ export function CtaBanner({
   title,
   description,
   primaryLabel = "Book a Free Discovery Call",
-  primaryHref = CALENDLY_URL,
+  primaryHref = BOOKING_URL,
   secondaryLabel = "Get Support Today",
   secondaryHref = "/services",
 }: CtaBannerProps) {

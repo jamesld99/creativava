@@ -4,7 +4,7 @@ import { Hero } from "@/components/Hero";
 import { SocialLinks } from "@/components/SocialLinks";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { createMetadata } from "@/lib/seo";
-import { CALENDLY_URL } from "@/lib/booking";
+import { BOOKING_URL } from "@/lib/booking";
 
 export const metadata: Metadata = createMetadata({
   title: "About Creativa VA",
@@ -21,7 +21,7 @@ export default function AboutPage() {
         eyebrow="About Creativa VA"
         title="Creative Support for Business Owners Who Want Calm, Capable Help"
         subtitle="Creativa VA was built for busy leaders who do brilliant work — but need an organised partner to handle admin, content and online growth behind the scenes."
-        primaryCta={{ label: "Book a Free Discovery Call", href: CALENDLY_URL }}
+        primaryCta={{ label: "Book a Free Discovery Call", href: BOOKING_URL }}
         secondaryCta={{ label: "Explore Services", href: "/services" }}
       />
 

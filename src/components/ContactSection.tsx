@@ -1,4 +1,4 @@
-import { CALENDLY_URL } from "@/lib/booking";
+import { BOOKING_URL } from "@/lib/booking";
 import { contactInfo } from "@/lib/contact";
 import { ContactForm } from "./ContactForm";
 import { SocialLinks } from "./SocialLinks";
@@ -26,9 +26,9 @@ export function ContactSection({ showHeader = true }: { showHeader?: boolean }) 
             new website, Creativa VA is here to help you save time and stay organised.
           </p>
           <div className="mt-6">
-            <Button href={CALENDLY_URL}>Book a Free Discovery Call</Button>
+            <Button href={BOOKING_URL}>Book a Free Discovery Call</Button>
             <p className="mt-2 text-xs text-charcoal/60">
-              Opens Calendly in a new tab — pick a time that suits you.
+              Opens our booking calendar in a new tab — pick a time that suits you.
             </p>
           </div>
           <dl className="mt-8 space-y-5">

@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { faqItems } from "@/lib/faq";
 import { createMetadata } from "@/lib/seo";
-import { CALENDLY_URL } from "@/lib/booking";
+import { BOOKING_URL } from "@/lib/booking";
 
 export const metadata: Metadata = createMetadata({
   title: "Frequently Asked Questions",
@@ -25,7 +25,7 @@ export default function FaqPage() {
         eyebrow="FAQ"
         title="Questions About Virtual Assistant & Social Media Support"
         subtitle="Clear answers about who we help, what we offer and how to start working with Creativa VA — written for search engines and real business owners alike."
-        primaryCta={{ label: "Book a Free Discovery Call", href: CALENDLY_URL }}
+        primaryCta={{ label: "Book a Free Discovery Call", href: BOOKING_URL }}
         secondaryCta={{ label: "View Services", href: "/services" }}
       />
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ContactSection } from "@/components/ContactSection";
 import { Hero } from "@/components/Hero";
 import { createMetadata } from "@/lib/seo";
-import { CALENDLY_URL } from "@/lib/booking";
+import { BOOKING_URL } from "@/lib/booking";
 
 export const metadata: Metadata = createMetadata({
   title: "Contact Creativa VA",
@@ -19,7 +19,7 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Book a Free Discovery Call"
         subtitle="Tell us about your business and the support you need. We will get back to you with clear, friendly next steps — whether you need admin help, social media or a new website."
-        primaryCta={{ label: "Book a Free Discovery Call", href: CALENDLY_URL }}
+        primaryCta={{ label: "Book a Free Discovery Call", href: BOOKING_URL }}
         secondaryCta={{ label: "Send a Message", href: "/contact#contact" }}
       />
       <ContactSection showHeader={false} />

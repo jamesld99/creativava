@@ -1,4 +1,4 @@
-import { CALENDLY_URL } from "./booking";
+import { BOOKING_URL } from "./booking";
 
 export const siteConfig = {
   name: "Creativa VA",
@@ -10,10 +10,10 @@ export const siteConfig = {
   phoneDisplay: "07949 282054",
   email: "liset@creativalilo.com",
   locale: "en_GB",
-  calendlyUrl: CALENDLY_URL,
+  bookingUrl: BOOKING_URL,
 };
 
-export { CALENDLY_URL } from "./booking";
+export { BOOKING_URL } from "./booking";
 export { contactInfo } from "./contact";
 export { navLinks, serviceLinks } from "./navigation";
 

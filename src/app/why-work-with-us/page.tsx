@@ -3,7 +3,7 @@ import { CtaBanner } from "@/components/CtaBanner";
 import { Hero } from "@/components/Hero";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { createMetadata } from "@/lib/seo";
-import { CALENDLY_URL } from "@/lib/booking";
+import { BOOKING_URL } from "@/lib/booking";
 
 export const metadata: Metadata = createMetadata({
   title: "Why Work With Creativa VA",
@@ -53,7 +53,7 @@ export default function WhyWorkWithUsPage() {
         eyebrow="Why work with us"
         title="Why Work With Creativa VA?"
         subtitle="You deserve support that is capable, organised and genuinely invested in helping your business run smoother and look better online."
-        primaryCta={{ label: "Book a Free Discovery Call", href: CALENDLY_URL }}
+        primaryCta={{ label: "Book a Free Discovery Call", href: BOOKING_URL }}
         secondaryCta={{ label: "View Services", href: "/services" }}
       />
 
