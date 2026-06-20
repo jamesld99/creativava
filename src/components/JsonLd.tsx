@@ -12,20 +12,42 @@ export function JsonLd({
   serviceName,
   serviceDescription,
 }: JsonLdProps) {
+  const telephone = `+44${siteConfig.phone.replace(/^0/, "")}`;
+
   const organization = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: siteConfig.name,
     description: siteConfig.description,
     url: siteConfig.url,
-    telephone: `+44${siteConfig.phone.replace(/^0/, "")}`,
+    telephone,
     email: siteConfig.email,
-    areaServed: "GB",
+    areaServed: {
+      "@type": "Country",
+      name: "United Kingdom",
+    },
     serviceType: [
       "Virtual Assistant Services",
       "Social Media Management",
       "Website Design",
     ],
+    founder: {
+      "@type": "Person",
+      name: "Liset",
+      jobTitle: "Founder & Virtual Assistant",
+      worksFor: {
+        "@type": "Organization",
+        name: siteConfig.name,
+      },
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone,
+      email: siteConfig.email,
+      contactType: "customer service",
+      areaServed: "GB",
+      availableLanguage: ["English"],
+    },
     audience: {
       "@type": "BusinessAudience",
       audienceType:
@@ -72,7 +94,12 @@ export function JsonLd({
         }
       : null;
 
-  const scripts: Record<string, unknown>[] = [organization, website];
+  // The root layout renders <JsonLd type="home" />, which emits the
+  // Organization + WebSite blocks once per page. Page-level usages
+  // (type="faq" / "service") only add their specific schema so these
+  // global blocks are never duplicated.
+  const scripts: Record<string, unknown>[] = [];
+  if (type === "home") scripts.push(organization, website);
   if (type === "faq") scripts.push(faqPage);
   if (type === "service" && service) scripts.push(service);
 

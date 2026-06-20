@@ -10,15 +10,17 @@ type HeroProps = {
   eyebrow?: string;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
+  microcopy?: string;
   compact?: boolean;
 };
 
 export function Hero({
   title,
   subtitle,
-  eyebrow = "Virtual Assistant UK · Social Media · Websites",
+  eyebrow = "Virtual Assistant · Social Media · Websites",
   primaryCta = { label: "Book a Free Discovery Call", href: BOOKING_URL },
   secondaryCta = { label: "View Services", href: "/services" },
+  microcopy,
   compact = false,
 }: HeroProps) {
   return (
@@ -59,6 +61,12 @@ export function Hero({
                 {secondaryCta.label}
               </Button>
             </div>
+            {microcopy && (
+              <p className="relative z-10 mt-4 flex items-center gap-2 text-sm text-charcoal/65">
+                <span aria-hidden>💬</span>
+                {microcopy}
+              </p>
+            )}
             {!compact && (
               <div className="relative z-10 mt-8 flex flex-wrap items-center gap-4">
                 <span className="text-sm font-medium text-charcoal/70">Say hello:</span>
@@ -69,18 +77,37 @@ export function Hero({
 
           {!compact && (
             <aside className="relative z-10 hidden lg:block">
-              <div className="relative overflow-hidden rounded-[2rem] border-2 border-rose-200/80 bg-cream-50 p-6 shadow-2xl shadow-rose-300/25">
-                <Image
-                  src="/brand-banner.png"
-                  alt="Creativa VA — admin support, social media, website design"
-                  width={560}
-                  height={280}
-                  className="h-auto w-full rounded-xl object-cover"
-                  priority
-                />
+              <div
+                className="pointer-events-none absolute -right-4 -top-4 z-20 rotate-3 rounded-full bg-rose-600 px-4 py-2 text-xs font-bold text-white shadow-lg"
+                aria-hidden
+              >
+                Free discovery call
+              </div>
+              <div className="relative overflow-hidden rounded-[2rem] border-2 border-rose-200/80 bg-cream-50 p-5 shadow-2xl shadow-rose-300/25">
+                <div className="overflow-hidden rounded-2xl border border-rose-100">
+                  <Image
+                    src="/brand-banner.png"
+                    alt="Creativa VA providing admin support, calendar and email management, and social media management"
+                    width={560}
+                    height={280}
+                    sizes="(max-width: 1024px) 0px, 480px"
+                    className="h-auto w-full object-cover"
+                    priority
+                  />
+                </div>
                 <p className="mt-5 font-display text-lg leading-snug text-charcoal">
                   Organised, efficient, reliable support — with a warm human touch.
                 </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {["Organised", "Reliable", "Creative", "Calm"].map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </aside>
           )}

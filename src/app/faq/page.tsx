@@ -35,11 +35,16 @@ export default function FaqPage() {
           description="Still have a question? Get in touch — we are happy to help."
         />
         <FAQ items={faqItems} />
-        <p className="mt-10 text-center text-sm text-slate-600">
+        <p className="mt-10 text-center text-sm text-charcoal/75">
           Ready to start?{" "}
           <Link href="/contact" className="font-semibold text-rose-700 hover:text-rose-600">
-            Contact Creativa VA
+            book a free discovery call
+          </Link>{" "}
+          or{" "}
+          <Link href="/contact" className="font-semibold text-rose-700 hover:text-rose-600">
+            contact Creativa VA
           </Link>
+          .
         </p>
       </Section>
 

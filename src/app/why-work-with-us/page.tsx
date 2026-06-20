@@ -66,12 +66,12 @@ export default function WhyWorkWithUsPage() {
           {benefits.map((item) => (
             <article
               key={item.title}
-              className="rounded-3xl border border-lilac-100 bg-white p-7 shadow-md shadow-lilac-100/50"
+              className="rounded-3xl border-2 border-rose-200 bg-cream-50/95 p-7 shadow-md shadow-rose-100/50"
             >
-              <h2 className="font-display text-lg font-semibold text-slate-900">
+              <h2 className="font-display text-lg font-semibold text-charcoal">
                 {item.title}
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+              <p className="mt-3 text-sm leading-relaxed text-charcoal/75">
                 {item.description}
               </p>
             </article>
@@ -81,10 +81,10 @@ export default function WhyWorkWithUsPage() {
 
       <Section variant="muted">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-2xl font-semibold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-semibold text-charcoal md:text-3xl">
             Let&apos;s Grow Your Business — Together
           </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
+          <p className="mt-4 text-charcoal/75 leading-relaxed">
             If you are a CEO, founder or business owner looking for a social media
             virtual assistant, admin support or website help, Creativa VA would love to
             hear from you. Start with a free discovery call — no obligation, just a

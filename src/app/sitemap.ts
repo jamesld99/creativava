@@ -11,15 +11,26 @@ const routes = [
   "/why-work-with-us",
   "/faq",
   "/contact",
+  "/privacy-policy",
+  "/terms",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
 
+  const lowPriority = ["/privacy-policy", "/terms"];
+
   return routes.map((route) => ({
     url: `${base}${route}`,
     lastModified: new Date(),
     changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : route.startsWith("/services") ? 0.9 : 0.8,
+    priority:
+      route === ""
+        ? 1
+        : lowPriority.includes(route)
+          ? 0.3
+          : route.startsWith("/services")
+            ? 0.9
+            : 0.8,
   }));
 }

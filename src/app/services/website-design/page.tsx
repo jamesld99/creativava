@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CtaBanner } from "@/components/CtaBanner";
 import { Hero } from "@/components/Hero";
 import { JsonLd } from "@/components/JsonLd";
+import { ServiceNeeds } from "@/components/ServiceNeeds";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
   title: "Website Design for Small Businesses",
   description:
-    "Simple, modern website design for small businesses and personal brands. Build, updates and ongoing website support from Creativa VA.",
+    "Simple, clean, modern website design for small businesses and personal brands — builds, updates and ongoing support from Creativa VA.",
   path: "/services/website-design",
 });
 
@@ -19,6 +21,14 @@ const services = [
   "Website updates and support",
   "Mobile-friendly, fast-loading layouts",
   "Clear calls to action and contact options",
+];
+
+const needThisIf = [
+  "Your website doesn't reflect how professional your business is.",
+  "You don't have a website yet and don't know where to start.",
+  "Your current site is outdated, slow or hard to update.",
+  "Visitors aren't turning into enquiries or bookings.",
+  "You need someone reliable to handle updates and changes.",
 ];
 
 export default function WebsiteDesignPage() {
@@ -44,9 +54,9 @@ export default function WebsiteDesignPage() {
           description="Your website should explain what you do, who you help and how to get in touch — clearly and beautifully. We create sites that feel premium, approachable and easy to navigate."
         />
         <div className="grid gap-10 lg:grid-cols-2">
-          <div className="space-y-6 text-slate-600 leading-relaxed">
+          <div className="space-y-6 text-charcoal/80 leading-relaxed">
             <p>
-              First impressions matter. A outdated or confusing website can cost you
+              First impressions matter. An outdated or confusing website can cost you
               enquiries before you ever get to speak with a prospect. We build
               website design for small businesses that reflects your brand and guides
               visitors toward booking a call or getting in touch.
@@ -56,21 +66,26 @@ export default function WebsiteDesignPage() {
               focus on clean layouts, plenty of white space and strong calls to action —
               the same principles we use on our own work.
             </p>
-            <h2 className="font-display text-2xl font-semibold text-slate-900">
+            <h2 className="font-display text-2xl font-semibold text-charcoal">
               Ongoing support
             </h2>
             <p>
               Need copy updates, new pages or small fixes? Website updates and support
               mean you are never stuck hunting for a developer for every little change.
+              Want help keeping it visible too? Pair your site with{" "}
+              <Link href="/services/social-media" className="font-bold text-rose-700 hover:text-rose-600">
+                social media management
+              </Link>
+              .
             </p>
           </div>
-          <ul className="rounded-3xl border border-lilac-100 bg-white p-8 shadow-lg shadow-lilac-200/30">
+          <ul className="rounded-3xl border border-rose-200 bg-cream-50 p-8 shadow-lg shadow-rose-200/30">
             {services.map((item) => (
               <li
                 key={item}
-                className="flex items-center gap-3 border-b border-lilac-50 py-4 last:border-0 text-sm text-slate-700"
+                className="flex items-center gap-3 border-b border-rose-100 py-4 last:border-0 text-sm text-charcoal/80"
               >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-lilac-100 text-lilac-700" aria-hidden>
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-rose-100 text-rose-700" aria-hidden>
                   ✓
                 </span>
                 {item}
@@ -78,6 +93,10 @@ export default function WebsiteDesignPage() {
             ))}
           </ul>
         </div>
+      </Section>
+
+      <Section variant="muted">
+        <ServiceNeeds items={needThisIf} />
       </Section>
 
       <Section variant="gradient">

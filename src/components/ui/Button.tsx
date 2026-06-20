@@ -21,6 +21,7 @@ type ButtonProps = {
   children: ReactNode;
   variant?: Variant;
   className?: string;
+  onClick?: () => void;
 };
 
 function isExternalHref(href: string) {
@@ -32,6 +33,7 @@ export function Button({
   children,
   variant = "primary",
   className = "",
+  onClick,
 }: ButtonProps) {
   const classes = `relative z-10 inline-flex cursor-pointer items-center justify-center rounded-full px-6 py-3.5 text-sm font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-100 ${variants[variant]} ${className}`;
 
@@ -40,6 +42,7 @@ export function Button({
       <a
         href={href}
         className={classes}
+        onClick={onClick}
         target={href.startsWith("http") ? "_blank" : undefined}
         rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
       >
@@ -50,14 +53,14 @@ export function Button({
 
   if (href.startsWith("#")) {
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} onClick={onClick}>
         {children}
       </a>
     );
   }
 
   return (
-    <Link href={href} className={classes} scroll={href.includes("#")}>
+    <Link href={href} className={classes} scroll={href.includes("#")} onClick={onClick}>
       {children}
     </Link>
   );

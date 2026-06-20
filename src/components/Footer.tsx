@@ -107,9 +107,25 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/15 pt-8 text-sm text-rose-200/90 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-4 border-t border-white/15 pt-8 text-sm text-rose-200/90 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} {siteConfig.name}. All rights reserved.</p>
-          <p>Virtual assistant UK · Social media · Website design</p>
+          <ul className="flex flex-wrap gap-x-5 gap-y-2">
+            <li>
+              <Link href="/privacy-policy" className="hover:text-white">
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link href="/terms" className="hover:text-white">
+                Terms of Service
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="hover:text-white">
+                Contact
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </footer>

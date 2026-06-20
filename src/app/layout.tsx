@@ -21,7 +21,7 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   ...createMetadata({
-    title: "Creative Virtual Assistant Support for Busy CEOs",
+    title: "Virtual Assistant & Digital Support",
     description: siteConfig.description,
     path: "/",
   }),

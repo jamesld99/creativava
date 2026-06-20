@@ -1,14 +1,15 @@
 import { BOOKING_URL } from "./booking";
+import { contactInfo } from "./contact";
 
 export const siteConfig = {
   name: "Creativa VA",
   tagline: "Creative Virtual Assistant Support",
   description:
     "Creativa VA helps CEOs, founders and business owners save time through virtual assistant support, social media management, content creation and website design across the UK.",
-  url: "https://www.creativava.com",
-  phone: "07949282054",
-  phoneDisplay: "07949 282054",
-  email: "liset@creativalilo.com",
+  url: "https://www.creativalilo.com",
+  phone: contactInfo.phone,
+  phoneDisplay: contactInfo.phoneDisplay,
+  email: contactInfo.email,
   locale: "en_GB",
   bookingUrl: BOOKING_URL,
 };
@@ -20,7 +21,7 @@ export { navLinks, serviceLinks } from "./navigation";
 export const socialLinks = [
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/creativalilo/",
+    href: "https://www.linkedin.com/company/creativa-va/",
     icon: "linkedin" as const,
   },
   {

@@ -23,11 +23,11 @@ export function Header() {
             className="h-11 w-11 rounded-xl object-contain transition-opacity group-hover:opacity-90 sm:h-12 sm:w-12"
             priority
           />
-          <span className="hidden flex-col sm:flex">
+          <span className="flex flex-col">
             <span className="font-display text-lg font-semibold text-charcoal transition-colors group-hover:text-rose-600">
               Creativa VA
             </span>
-            <span className="text-xs font-medium text-rose-500">
+            <span className="hidden text-xs font-medium text-rose-500 sm:block">
               Virtual Assistant & Digital Support
             </span>
           </span>
@@ -91,10 +91,17 @@ export function Header() {
             <li className="py-2">
               <SocialLinks size="md" />
             </li>
-            <li className="pt-2">
-              <Button href={BOOKING_URL} className="w-full">
+            <li className="mt-2 border-t border-rose-200 pt-4">
+              <Button
+                href={BOOKING_URL}
+                className="w-full justify-center py-3.5 text-base"
+                onClick={() => setOpen(false)}
+              >
                 Book a Free Discovery Call
               </Button>
+              <p className="mt-2 text-center text-xs text-charcoal/60">
+                No pressure — just a friendly chat.
+              </p>
             </li>
           </ul>
         </nav>

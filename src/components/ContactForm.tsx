@@ -3,34 +3,72 @@
 import { useState, type FormEvent } from "react";
 import { contactInfo } from "@/lib/contact";
 
-export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+type Status = "idle" | "submitting" | "success" | "error";
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+function buildMailto(values: {
+  name: string;
+  email: string;
+  service: string;
+  message: string;
+}) {
+  const subject = encodeURIComponent(
+    `Discovery call enquiry from ${values.name}`,
+  );
+  const body = encodeURIComponent(
+    `Name: ${values.name}\nEmail: ${values.email}\nService: ${values.service || "Not specified"}\n\nMessage:\n${values.message}`,
+  );
+  return `mailto:${contactInfo.email}?subject=${subject}&body=${body}`;
+}
+
+export function ContactForm() {
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [lastValues, setLastValues] = useState({
+    name: "",
+    email: "",
+    service: "",
+    message: "",
+  });
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
-    const name = data.get("name") as string;
-    const email = data.get("email") as string;
-    const service = data.get("service") as string;
-    const message = data.get("message") as string;
-    const subject = encodeURIComponent(`Discovery call enquiry from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nService: ${service || "Not specified"}\n\nMessage:\n${message}`,
-    );
-    const mailto = `mailto:${contactInfo.email}?subject=${subject}&body=${body}`;
+    const values = {
+      name: (data.get("name") as string) ?? "",
+      email: (data.get("email") as string) ?? "",
+      service: (data.get("service") as string) ?? "",
+      message: (data.get("message") as string) ?? "",
+    };
+    setLastValues(values);
+    setStatus("submitting");
+    setErrorMessage("");
 
-    const link = document.createElement("a");
-    link.href = mailto;
-    link.rel = "noopener noreferrer";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
 
-    setSubmitted(true);
+      if (!response.ok) {
+        const data = await response.json().catch(() => null);
+        throw new Error(data?.error ?? "We could not send your message.");
+      }
+
+      form.reset();
+      setStatus("success");
+    } catch (error) {
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again.",
+      );
+      setStatus("error");
+    }
   }
 
-  if (submitted) {
+  if (status === "success") {
     return (
       <div
         className="rounded-2xl border border-rose-200 bg-rose-50 p-8 text-center"
@@ -38,8 +76,14 @@ export function ContactForm() {
       >
         <p className="font-semibold text-charcoal">Thank you for getting in touch.</p>
         <p className="mt-2 text-sm text-charcoal/75">
-          Your email app should open shortly. If it does not, email us at{" "}
-          <a href={`mailto:${contactInfo.email}`} className="font-medium text-rose-700 underline">
+          Your message has been sent — we&apos;ll reply within 1–2 working days.
+        </p>
+        <p className="mt-3 text-sm text-charcoal/75">
+          Prefer email? Reach us directly at{" "}
+          <a
+            href={`mailto:${contactInfo.email}`}
+            className="font-medium text-rose-700 underline"
+          >
             {contactInfo.email}
           </a>
           .
@@ -47,6 +91,8 @@ export function ContactForm() {
       </div>
     );
   }
+
+  const isSubmitting = status === "submitting";
 
   return (
     <form onSubmit={handleSubmit} className="relative z-10 space-y-5" noValidate>
@@ -109,11 +155,36 @@ export function ContactForm() {
           placeholder="What would help you most right now?"
         />
       </div>
+
+      {status === "error" && (
+        <div
+          className="rounded-xl border border-rose-300 bg-rose-50 p-4 text-sm text-charcoal/80"
+          role="alert"
+        >
+          {errorMessage}{" "}
+          You can also email us directly at{" "}
+          <a
+            href={buildMailto(lastValues)}
+            className="font-medium text-rose-700 underline"
+          >
+            {contactInfo.email}
+          </a>
+          .
+        </div>
+      )}
+
       <button
         type="submit"
-        className="relative z-10 w-full cursor-pointer rounded-full bg-gradient-to-r from-rose-600 via-rose-500 to-rose-400 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-rose-600/30 transition hover:from-rose-700 hover:to-rose-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-100"
+        disabled={isSubmitting}
+        className="relative z-10 flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-gradient-to-r from-rose-600 via-rose-500 to-rose-400 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-rose-600/30 transition hover:from-rose-700 hover:to-rose-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-100 disabled:cursor-not-allowed disabled:opacity-70"
       >
-        Send Message
+        {isSubmitting && (
+          <span
+            className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white"
+            aria-hidden
+          />
+        )}
+        {isSubmitting ? "Sending…" : "Send Message"}
       </button>
       <p className="text-center text-xs text-charcoal/60">
         Prefer to call?{" "}
